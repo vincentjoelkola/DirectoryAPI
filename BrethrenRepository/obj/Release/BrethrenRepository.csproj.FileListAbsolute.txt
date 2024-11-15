@@ -1,0 +1,9 @@
+C:\Vincent\Projects\BookService-master\BrethrenRepository\bin\Release\BrethrenRepository.dll
+C:\Vincent\Projects\BookService-master\BrethrenRepository\bin\Release\BrethrenRepository.pdb
+C:\Vincent\Projects\BookService-master\BrethrenRepository\bin\Release\BrethrenModels.dll
+C:\Vincent\Projects\BookService-master\BrethrenRepository\bin\Release\BrethrenModels.pdb
+C:\Vincent\Projects\BookService-master\BrethrenRepository\obj\Release\BrethrenRepository.csprojAssemblyReference.cache
+C:\Vincent\Projects\BookService-master\BrethrenRepository\obj\Release\BrethrenRepository.csproj.CoreCompileInputs.cache
+C:\Vincent\Projects\BookService-master\BrethrenRepository\obj\Release\BrethrenRepository.csproj.CopyComplete
+C:\Vincent\Projects\BookService-master\BrethrenRepository\obj\Release\BrethrenRepository.dll
+C:\Vincent\Projects\BookService-master\BrethrenRepository\obj\Release\BrethrenRepository.pdb

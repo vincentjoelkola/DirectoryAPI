@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Evangelists</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class='liveExample'>
+    <div data-bind='simpleGrid: gridViewModel, simpleGridTemplate:"custom_grid_template"'> </div>
+</div>
+
+<script type="text/javascript" id="custom_grid_template">
+    <table class="table" cellspacing="0">
+        <thead>
+            <tr data-bind="foreach: columns">
+                <th data-bind="text: headerText"></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: itemsOnCurrentPage">
+            <tr data-bind="foreach: $parent.columns">
+                <!--ko if: typeof rowText == 'object' && typeof rowText.action == 'function'-->
+                               <td><button data-bind="click:rowText.action($parent)">action</button></td>
+                <!-- /ko -->
+                               <!--ko ifnot: typeof rowText == 'object' && typeof rowText.action == 'function'-->
+                               <td data-bind="text: typeof rowText == 'function' ? rowText($parent) : $parent[rowText] "></td>
+                <!--/ko-->
+                            </tr>
+        </tbody>
+    </table>
+</script>
+
+
+@*<div data-bind='simpleGrid: gridViewModel'> </div>*@
+<button data-bind='click: sortByName'>
+    Sort by EvangelistName
+</button>
+
+<button data-bind='click: sortByName'>
+    Sort by City
+</button>
+
+
+<button data-bind='click: sortByName'>
+    Sort by District
+</button>
+
+
+<button data-bind='click: sortByName'>
+    Sort by State
+</button>
+
+
+<button data-bind='click: jumpToFirstPage, enable: gridViewModel.currentPageIndex'>
+    Jump to first page
+</button>
+
+@*<table class="table">
+    <tr>
+        <th>
+            Evangelist Name
+        </th>
+        <th>
+            Assembly Name
+        </th>
+        <th>
+            Age
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            District
+        </th>
+        <th>
+            State
+        </th>
+        <th>
+            Country
+        </th>
+        <th></th>
+    </tr>
+    <tbody data-bind="foreach: Evangelists">
+        <tr>
+            <td data-bind="text: Name"></td>
+            <td data-bind="text: AssemblyName"></td>
+            <td data-bind="text: Age"></td>
+            <td data-bind="text: Address1"></td>
+            <td data-bind="text: City"></td>
+            <td data-bind="text: District"></td>
+            <td data-bind="text: State"></td>
+            <td data-bind="text: Country"></td>
+            <td>
+                <a data-bind="attr: { 'href': '@Url.Action("Edit", "Evangelist" )/' + EvangelistId }" class="btn-link">Edit</a>
+                <a data-bind="attr: { 'href': '@Url.Action("Delete", "Evangelist" )/' + EvangelistId }" class="btn-link">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>*@
+<script src="~/Scripts/jquery-3.1.0.min.js"></script>
+<script src="~/Scripts/knockout-3.4.0.js"></script>
+<script src="~/Scripts/knockout.simpleGrid.3.0.js"></script>
+<script src="~/Scripts/EvangelistJs/EvangelistRead.js"></script>

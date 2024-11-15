@@ -1,0 +1,300 @@
+﻿
+@{
+    /**/
+
+    /**/
+
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Evangelist Request Details</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName"></label>
+        <div class="col-md-10">
+            <img height="300" width="300" data-bind="attr: {src: getPhotoUrl()}" alt="No Image" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">Evangelist Name</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="Name" name="Name" type="text" value="" data-bind="value: Name">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">Date of Birth</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line mydatecontrol" id="DOB" name="DOB" type="text"
+                   data-bind="value:DOB">
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">Education Qualification</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="EduQualification" name="EduQualification" type="text" value="" data-bind="value: EduQualification">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">Wife's Name</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="WifesName" name="WifesName" type="text" value="" data-bind="value: WifesName">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">Wife's Age</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="WifesAge" name="WifesAge" type="text" data-bind="value: WifesAge">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">No of Children</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="NoofChildren" name="NoofChildren" type="text" value="" data-bind="value: NoofChildren">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Children</h2>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Age
+                            </th>
+                            <th></th>
+                        </tr>
+                        <tbody data-bind="foreach: Children">
+                            <tr>
+                                <td>
+                                    <input class="form-control text-box" name="ChildName" type="text" value="" data-bind="value: ChildName" placeholder="ChildName">
+                                </td>
+                                <td>
+                                    <input class="form-control text-box mydatecontrol" name="Age" type="text" value="" data-bind="value: Age" placeholder="Age">
+                                </td>
+                                <td>
+                                    <a data-bind="click: $parent.deleteChild" class="btn-link">Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="button" data-bind="click: addChild" value="Add Children" class="btn btn-default">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">Date Of CommMinistry</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="DateOfCommMinistry" name="DateOfCommMinistry" type="text" value="" data-bind="value: DateOfCommMinistry">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">Address1</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="Address1" name="Address1" type="text" value="" data-bind="value: Address1">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">LandMark</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="LandMark" name="LandMark" type="text" value="" data-bind="value: LandMark">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">City</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="City" name="City" type="text" value="" data-bind="value: City">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">District</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="District" name="District" type="text" value="" data-bind="value: District">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">State</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="State" name="State" type="text" value="" data-bind="value: State">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">Country</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="Country" name="Country" type="text" value="" data-bind="value: Country">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">Pincode</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="PinCode" name="PinCode" type="text" value="" data-bind="value: PinCode">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">Permanant PhoneNo</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="PermanantPhoneNo" name="PermanantPhoneNo" type="text" value="" data-bind="value: PermanantPhoneNo">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">WhatsApp No</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="WhatsAppNo" name="WhatsAppNo" type="text" value="" data-bind="value: WhatsAppNo">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="FirstName">Email Address</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="EmailAddress" name="EmailAddress" type="text" value="" data-bind="value: EmailAddress">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Assembly</h2>
+                </div>
+                <div class="panel-body">
+                    <div data-bind="with: Assembly">
+                        <span data-bind="text: AssemblyName"></span><br />
+                        <span data-bind="text: Address1"></span>,
+                        <span data-bind="text: City"></span><br />
+                        <span data-bind="text: District"></span>
+                        <span data-bind="text: State"></span><br />
+                        <span data-bind="text: Country"></span>
+                    </div>
+                    <input type="button" onclick="openDialog()" value="Select Assembly" class="btn btn-default">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Commanded Assembly</h2>
+                </div>
+                <div class="panel-body">
+                    <div data-bind="with: CommdAssembly">
+                        <span data-bind="text: AssemblyName"></span><br />
+                        <span data-bind="text: Address1"></span>,
+                        <span data-bind="text: City"></span><br />
+                        <span data-bind="text: District"></span>
+                        <span data-bind="text: State"></span><br />
+                        <span data-bind="text: Country"></span>
+                    </div>
+                    <input type="button" onclick="openCommdDialog()" value="Select Assembly" class="btn btn-default">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" data-bind="click: cancel" value="Cancel" class="btn btn-default">
+            <input type="button" data-bind="click: rejectRequest" value="Reject" class="btn btn-default">
+            <input type="button" data-bind="click: approveRequest" value="Approve" class="btn btn-default">
+        </div>
+    </div>
+</div>
+    <div id="dialog" title="Select Assembly" style="display:none">
+        <div>
+            Search: <input type="text" data-bind="textInput: AssemblyFilterText" />
+        </div>
+        <div data-bind='simpleGrid: gridViewModel, simpleGridTemplate:"custom_grid_template"'> </div>
+        @*<table class="table">
+                <tr>
+                    <th>
+                        Assembly Name
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        District
+                    </th>
+                    <th>
+                        State
+                    </th>
+                    <th>
+                        Country
+                    </th>
+                    <th></th>
+                </tr>
+                <tbody data-bind="foreach: searchAssemblies()">
+                    <tr>
+                        <td data-bind="text: AssemblyName"></td>
+                        <td data-bind="text: Address1"></td>
+                        <td data-bind="text: City"></td>
+                        <td data-bind="text: District"></td>
+                        <td data-bind="text: State"></td>
+                        <td data-bind="text: Country"></td>
+                        <td>
+                            <input type="button" value="Select" data-bind="click: selectAssembly" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>*@
+    </div>
+
+
+
+}
+
+<script type="text/javascript" id="custom_grid_template">
+    <table class="table" cellspacing="0">
+        <thead>
+            <tr data-bind="foreach: columns">
+                <th data-bind="text: headerText"></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: itemsOnCurrentPage">
+            <tr data-bind="foreach: $parent.columns">
+                <!--ko if: typeof rowText == 'object' && typeof rowText.action == 'function'-->
+                               <td><button data-bind="click:rowText.action($parent)">Select</button></td>
+                <!-- /ko -->
+                               <!--ko ifnot: typeof rowText == 'object' && typeof rowText.action == 'function'-->
+                               <td data-bind="text: typeof rowText == 'function' ? rowText($parent) : $parent[rowText] "></td>
+                <!--/ko-->
+                            </tr>
+        </tbody>
+    </table>
+</script>
+
+
+<script type="text/javascript">
+    var requestId = '@Html.Raw(ViewBag.RequestId)';
+</script>
+<div>
+    @Html.ActionLink("Back to List", "index")
+</div>
+<script src="~/Scripts/jquery-3.1.0.min.js"></script>
+@*    <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>*@
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="~/Scripts/bootstrap-datepicker.js"></script>
+<script src="~/Scripts/moment.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!--<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+@*<script src="~/Scripts/jquery-3.1.0.min.js"></script>*@
+<script src="~/Scripts/knockout-3.4.0.js"></script>
+<script src="~/Scripts/knockout.simpleGrid.3.0.js"></script>
+<script src="~/Scripts/EvangelistJs/EvangelistReqUpdate.js"></script>

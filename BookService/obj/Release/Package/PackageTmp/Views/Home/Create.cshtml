@@ -1,0 +1,148 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Assembly</h4>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="FirstName">Assembly Name</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="AssemblyName" name="AssemblyName" type="text" value="" data-bind="value: AssemblyName">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="FirstName">Worship Time</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="WorshipTime" name="WorshipTime" type="text" value="" data-bind="value: WorshipTime">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="FirstName">No of Gathering</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="NoOfPersons" name="NoOfPersons" type="text" value="" data-bind="value: NoOfPersons">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="FirstName">Services</label>
+            <div class="col-md-10">
+                <select style="width:300px" data-bind="options: AvailableServices, optionsText: function (item) { return item.ServiceLanguage; },
+                    optionsValue:function (item) { return item.ServiceId; },
+                    selectedOptions: ServiceLanguages" size="5" multiple="true"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="FirstName">Address</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Address" name="Address" type="text" value="" data-bind="value: Address1">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="FirstName">LandMark</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="LandMark" name="LandMark" type="text" value="" data-bind="value: LandMark">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="FirstName">City</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="City" name="City" type="text" value="" data-bind="value: City">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="FirstName">District</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="District" name="District" type="text" value="" data-bind="value: District">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="FirstName">State</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="State" name="State" type="text" value="" data-bind="value: State">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="FirstName">Country</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Country" name="Country" type="text" value="" data-bind="value: Country">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="FirstName">Pincode</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="PinCode" name="PinCode" type="text" value="" data-bind="value: PinCode">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="FirstName">Permanant PhoneNo</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="PermanantPhoneNo" name="PermanantPhoneNo" type="text" value="" data-bind="value: PermanantPhoneNo">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="FirstName">Email Address</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="EmailAddress" name="EmailAddress" type="text" value="" data-bind="value: EmailAddress">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Church Elders</h2>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Phone
+                            </th>
+                            <th></th>
+                        </tr>
+                        <tbody data-bind="foreach: AssemblyElders">
+                            <tr>
+                                <td>
+                                    <input class="form-control text-box" id="ElderName" name="ElderName" type="text" value="" data-bind="value: ElderName" placeholder="ElderName">
+                                </td>
+                                <td>
+                                    <input class="form-control text-box" id="ElderPhone" name="ElderPhone" type="text" value="" data-bind="value: ElderPhone" placeholder="ElderPhone">
+                                </td>
+                                <td>
+                                    <a data-bind="click: $parent.deleteElder" class="btn-link">Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="button" data-bind="click: addElder" value="Add Elder" class="btn btn-default">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" data-bind="click: cancel" value="Cancel" class="btn btn-default">
+                <input type="button" data-bind="click: updateAssembly" value="Save" class="btn btn-default">
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "index1")
+</div>
+<script src="~/Scripts/jquery-3.1.0.min.js"></script>
+<script src="~/Scripts/knockout-3.4.0.js"></script>
+<script src="~/Scripts/EvangelistJs/AssemblyCreate.js"></script>
+
+

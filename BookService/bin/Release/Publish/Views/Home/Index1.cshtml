@@ -1,0 +1,112 @@
+﻿@section scripts {
+  @Scripts.Render("~/bundles/app")
+}
+
+<div class="page-header">
+  <h1>Christian Assemblies</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Assemblies</h2>
+            </div>
+            <div class="panel-body">
+                <ul class="list-unstyled" data-bind="foreach: assemblies">
+                    <li>
+                        <strong><span data-bind="text: ($index()+1)"> </span> ) <span data-bind="text: AssemblyName"></span></strong><br />
+                        <span data-bind="text: Address1"></span>,
+                        <span data-bind="text: LandMark"></span>
+                        <span data-bind="text: City"></span><br />
+                        <span data-bind="text: District"></span><br />
+                        <span data-bind="text: State"></span><br />
+                        <span data-bind="text: Country"></span><br />
+                        <small><a href="#" data-bind="click: $parent.getAssemblyDetail">Details</a></small>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Add/Edit Assembly</h2>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" data-bind="submit: addBook">
+                    <div class="form-group" data-bind="with: newBook">
+                        <label for="inputTitle" class="col-sm-4 control-label">Name</label>
+                        <div class="col-sm-8">
+                            <input type="hidden" id="hdnAssemblyId" data-bind="value:AssemblyId"/>
+                            <input type="text" class="form-control" id="inputTitle" data-bind="value:AssemblyName" placeholder="Assemly Name" />
+                        </div>
+                        <label for="inputYear" class="col-sm-4 control-label">No of Gathering</label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control" id="inputYear" data-bind="value:AssemblyName" placeholder="No of people gathering" />
+                        </div>
+                        <label for="inputGenre" class="col-sm-4 control-label">WorshipTime</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="inputGenre" data-bind="value:AssemblyName" placeholder="10:00 AM - 12:00 PM" />
+                        </div>
+                        <label for="inputGenre" class="col-sm-4 control-label">Available Services</label>
+                        <div class="col-sm-8">
+                            <select data-bind="options: availableServices, selectedOptions: chosenServices" size="5" multiple="true"></select>
+                        </div>
+                        <label for="inputPrice" class="col-sm-4 control-label">Address</label>
+                        <div class="col-sm-8">
+                            <input type="number" step="any" class="form-control" id="inputPrice" data-bind="value:AssemblyName" placeholder="Address" />
+                        </div>
+                        <label for="inputPrice" class="col-sm-4 control-label">Landmark</label>
+                        <div class="col-sm-8">
+                            <input type="number" step="any" class="form-control" id="inputPrice" data-bind="value:AssemblyName" placeholder="Landmark" />
+                        </div>
+                        <label for="inputPrice" class="col-sm-4 control-label">City</label>
+                        <div class="col-sm-8">
+                            <input type="number" step="any" class="form-control" id="inputPrice" data-bind="value:AssemblyName" placeholder="City" />
+                        </div>
+                        <label for="inputPrice" class="col-sm-4 control-label">District</label>
+                        <div class="col-sm-8">
+                            <input type="number" step="any" class="form-control" id="inputPrice" data-bind="value:AssemblyName" placeholder="District" />
+                        </div>
+                        <label for="inputPrice" class="col-sm-4 control-label">State</label>
+                        <div class="col-sm-8">
+                            <input type="number" step="any" class="form-control" id="inputPrice" data-bind="value:AssemblyName" placeholder="State" />
+
+                        </div>
+                        <label for="inputPrice" class="col-sm-4 control-label">Country</label>
+                        <div class="col-sm-8">
+                            <input type="number" step="any" class="form-control" id="inputPrice" data-bind="value:AssemblyName" placeholder="Country" />
+                        </div>
+                        <label for="inputPrice" class="col-sm-4 control-label">Pincode</label>
+                        <div class="col-sm-8">
+                            <input type="number" step="any" class="form-control" id="inputPrice" data-bind="value:AssemblyName" placeholder="Pincode" />
+                        </div>
+                        <label for="inputPrice" class="col-sm-4 control-label">Permanant Phone</label>
+                        <div class="col-sm-8">
+                            <input type="number" step="any" class="form-control" id="inputPrice" data-bind="value:AssemblyName" placeholder="Phone no" />
+                        </div>
+                        <label for="inputPrice" class="col-sm-4 control-label">Email Address</label>
+                        <div class="col-sm-8">
+                            <input type="number" step="any" class="form-control" id="inputPrice" data-bind="value:AssemblyName" placeholder="Email" />
+                        </div>
+                        <div class="panel-body">
+                            <ul class="list-unstyled" data-bind="foreach: churchElders">
+                                <li>
+                                    <strong><span data-bind="text: AssemblyName"></span></strong><br />
+                                    <span data-bind="text: id"></span>,
+                                    <span data-bind="text: name"></span>
+                                    <span data-bind="text: phone"></span><br />
+                                    <a href="#" data-bind="click: $parent.getBookDetail">Details</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
+    </div>
+</div>

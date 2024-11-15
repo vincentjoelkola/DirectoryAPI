@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Assembly Requests</h2>
+
+<div class='liveExample'>
+    <div data-bind='simpleGrid: gridViewModel, simpleGridTemplate:"custom_grid_template"'> </div>
+</div>
+
+<script type="text/javascript" id="custom_grid_template">
+    <table class="table" cellspacing="0">
+        <thead>
+            <tr data-bind="foreach: columns">
+                <th data-bind="text: headerText"></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: itemsOnCurrentPage">
+            <tr data-bind="foreach: $parent.columns">
+                <!--ko if: typeof rowText == 'object' && typeof rowText.action == 'function'-->
+                               <td><button data-bind="click:rowText.action($parent)">action</button></td>
+                <!-- /ko -->
+                               <!--ko ifnot: typeof rowText == 'object' && typeof rowText.action == 'function'-->
+                               <td data-bind="text: typeof rowText == 'function' ? rowText($parent) : $parent[rowText] "></td>
+                <!--/ko-->
+                            </tr>
+        </tbody>
+    </table>
+</script>
+
+
+@*<div data-bind='simpleGrid: gridViewModel'> </div>*@
+<button data-bind='click: sortByName'>
+    Sort by AssemblyName
+</button>
+
+<button data-bind='click: sortByName'>
+    Sort by City
+</button>
+
+
+<button data-bind='click: sortByName'>
+    Sort by District
+</button>
+
+
+<button data-bind='click: sortByName'>
+    Sort by State
+</button>
+
+
+<button data-bind='click: jumpToFirstPage, enable: gridViewModel.currentPageIndex'>
+    Jump to first page
+</button>
+
+
+<script src="~/Scripts/jquery-3.1.0.min.js"></script>
+<script src="~/Scripts/knockout-3.4.0.js"></script>
+<script src="~/Scripts/knockout.simpleGrid.3.0.js"></script>
+<script src="~/Scripts/EvangelistJs/AssemblyReqRead.js"></script>
+
+
